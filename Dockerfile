@@ -25,8 +25,6 @@ RUN addgroup --system script && adduser --system --ingroup script script
 ENV HOME=/home/script
 WORKDIR $HOME
 
-
-
 # copy project
 COPY . $HOME
 RUN mkdir $HOME/data
@@ -36,5 +34,4 @@ VOLUME $HOME/data
 
 # change to the app user
 USER script
-
-ENTRYPOINT ["/usr/local/bin/python"]
+ENTRYPOINT ["python", "main.py"]
